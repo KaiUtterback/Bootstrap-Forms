@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Enhanced Form Layouts with Floating Labels and Validation</title>
+  <style>
+    .form-floating > .form-control {
+      height: calc(3.5rem + 2px);
+    }
+    .jumbotron {
+      padding: 2rem 1rem;
+    }
+    .form-section {
+      margin-bottom: 2rem;
+      padding: 2rem;
+      background-color: #f8f9fa;
+      border-radius: 0.5rem;
+    }
+    .form-section h2 {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="jumbotron text-center bg-primary text-white">
+    <h1 class="display-4">Bootstrap Forms!</h1>
+    <p class="lead">Enhance your forms with floating labels and validation</p>
+  </div>
+
+  <div class="container mt-5">
+    <!-- Multi-Column Form Layout -->
+    <div class="form-section">
+      <h2>Multi-Column Form Layout</h2>
+      <form class="needs-validation" novalidate>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
+              <label for="inputFirstName">First Name</label>
+              <div class="invalid-feedback">Please provide your first name.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
+              <label for="inputLastName">Last Name</label>
+              <div class="invalid-feedback">Please provide your last name.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+              <label for="inputEmail">Email</label>
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <div class="form-floating mb-3">
+              <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" required>
+              <label for="inputPhone">Phone</label>
+              <div class="invalid-feedback">Please provide a valid phone number.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <!-- Inline Form Layout -->
+    <div class="form-section">
+      <h2>Inline Contact Form</h2>
+      <form class="form-inline needs-validation" novalidate>
+        <div class="form-group mb-2">
+          <label for="inputName" class="sr-only">Name</label>
+          <input type="text" class="form-control" id="inputName" placeholder="Name" required>
+          <div class="invalid-feedback">Please provide your name.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="inputEmailInline" class="sr-only">Email</label>
+          <input type="email" class="form-control" id="inputEmailInline" placeholder="Email" required>
+          <div class="invalid-feedback">Please provide a valid email address.</div>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </form>
+    </div>
+
+    <!-- Stacked Form Layout -->
+    <div class="form-section">
+      <h2>Stacked Form Layout</h2>
+      <form class="needs-validation" novalidate>
+        <div class="form-group">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="inputFirstNameStacked" placeholder="First Name" required>
+            <label for="inputFirstNameStacked">First Name</label>
+            <div class="invalid-feedback">Please provide your first name.</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="inputLastNameStacked" placeholder="Last Name" required>
+            <label for="inputLastNameStacked">Last Name</label>
+            <div class="invalid-feedback">Please provide your last name.</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="inputEmailStacked" placeholder="Email" required>
+            <label for="inputEmailStacked">Email</label>
+            <div class="invalid-feedback">Please provide a valid email address.</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="inputPhoneStacked" placeholder="Phone" required>
+            <label for="inputPhoneStacked">Phone</label>
+            <div class="invalid-feedback">Please provide a valid phone number.</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
